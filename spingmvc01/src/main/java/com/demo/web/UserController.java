@@ -77,7 +77,8 @@ public class UserController {
         使用 @RequestParam 注解对参数进行限制
         name ：请求中的参数名，也就是 key 值
         required ：是否是必填项，默认为 true，必填
-        defaultValue ：默认值
+            （在有 defaultValue 属性时，默认值的存在为参数提供一个备选值，必填项将不会再有红色的 ‘* required’ 标志，并且不会再强制要求填写此项）
+        defaultValue ：当请求中没有该参数时，提供一个默认值。
         如果没有使用 @RequestParam 注解，方法的参数名要和请求的参数名一致，
         如果使用了 @RequestParam 注解，name 的属性值要和请求的参数名一致，方法中的参数不作要求。
     */
