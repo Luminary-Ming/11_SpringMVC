@@ -8,6 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /*
     过滤器（Filter）与拦截器（Interceptor）区别：
+    Filter：
+        基于函数回调实现
+        是Servlet规范的接口，依赖于Servlet容器
+        一般是在 Web 工程中使用
+        可以拦截所有进入容器的请求，包括静态资源请求和动态资源请求
+    Interceptor：
+        基于Java的反射机制和动态代理实现
+        是Spring框架的组件，不依赖于Servlet容器
+        主要拦截对Controller中方法的请求（方法调用之前，方法调用之后）
+请求的处理流程为：
+    Tomcat ==> Filter ==> Servlet ==> Interceptor ==> Controller
+也就是说，过滤器在拦截器之前被触发。
 */
 public class DemoInterceptor implements HandlerInterceptor {
     /*
